@@ -4,8 +4,7 @@ body{
 }
 
 .contenedor_formulario{
-    width: 100%;
-    max-width: 450px;
+    width: 450px;
     height: 500px;
     display: grid;
     place-items: center;
@@ -13,6 +12,11 @@ body{
     box-shadow: 7px 11px 5px 0px rgba(230,230,230,0.67);
     margin-top: 3rem;
     border-radius: 5px;
+}
+@media(max-width: 480px){
+    .contenedor_formulario{
+        width: 380px;
+    }
 }
 .contenedor_formulario h2 {
     text-align: center;
