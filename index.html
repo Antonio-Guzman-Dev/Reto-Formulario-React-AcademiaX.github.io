@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto Formulario React - Academia X</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div id="root" className="root"></div>
+    <script type="text/babel">
+
+    const ComponenteFormulario = ()=>{
+        const[datos, setDatos] = React.useState({
+            nombre: '',
+            email: '',
+            mensaje: '',
+        });
+    
+
+        const actualizarDatos = (e)=>{
+            setDatos({...datos, [e.target.id]: e.target.value,});
+        };
+
+        const eventSubmit = (e)=>{
+            e.preventDefault();
+            alert("Formulario enviado");
+            console.log(datos);
+        };
+
+        return (
+            <div className="contenedor_formulario">
+
+                <h2>Formulario</h2>
+
+                <form onSubmit={eventSubmit} className="formulario">
+
+                    <div className="contenedor_input">
+                        <label>Nombre:</label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            value={datos.nombre}
+                            onChange={actualizarDatos}
+                            required
+                        />
+                    </div>
+                    <div className="contenedor_input">
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={datos.email}
+                            onChange={actualizarDatos}
+                        />
+                    </div>
+                    <div className="contenedor_input">
+                        <label>Menaje:</label>
+                        <textarea
+                            id="mensaje"
+                            value={datos.mensaje}
+                            onChange={actualizarDatos}
+                        ></textarea>
+                    </div>
+                    <button type="submit" className="button">Enviar</button>
+                </form>
+            </div>
+        );
+    };
+    ReactDOM.render(<ComponenteFormulario />, document.getElementById('root'));
+    </script>
+    
+</body>
+</html>
