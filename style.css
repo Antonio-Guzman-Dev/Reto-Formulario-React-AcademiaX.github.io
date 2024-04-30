@@ -4,7 +4,8 @@ body{
 }
 
 .contenedor_formulario{
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     height: 500px;
     display: grid;
     place-items: center;
